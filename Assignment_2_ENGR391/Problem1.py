@@ -1,5 +1,3 @@
-from email.mime import image
-
 import numpy as np
 # Define file name for Image Matrix
 inputMatrixFile = "Image Matrix.txt"
@@ -21,18 +19,17 @@ matrix = np.pad(matrix, 1, mode='constant', constant_values=0)
 # Get rid of top and bottom rows being padded
 matrix = np.array(matrix[1:-1])
 
-
 def convolution(image, givenMask):
     answerArray = np.empty([0,5])
     givenMask = np.flip(givenMask)
 
-    for i in range(3,5):
-        #print(image[:i])
-        #print(givenMask[-i:])
+    #print(np.convolve(image, givenMask, mode="same"))
+
+    for i in range(2,4):
         answer = np.sum(np.matmul(image[:i], givenMask[-i:]))
         answerArray = np.append(answerArray, answer)
 
-    for i in range(1,3):
+    for i in range(1,2):
         answer = np.sum(np.matmul(image[i:], givenMask[:-i]))
         answerArray = np.append(answerArray, answer)
 
@@ -42,10 +39,7 @@ def convolution(image, givenMask):
 for i in range(0, 10):
     newMat = np.array_split(matrix[i], 4)
     # Limit Matrix to have min value of 0 and max value of 255
-    np.append(newMat, newMat)
+    print(newMat)
+    print(newMat[0])
 
-    for mat in range(0,4):
-        answer = convolution(newMat[mat], mask)
-        clippedMatrix = np.clip(answer, 0, 255)
-        print(clippedMatrix)
 
