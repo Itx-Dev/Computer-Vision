@@ -46,12 +46,12 @@ for i in range(0, 10):
 
     # Combine aray into single array
     returnArray = np.concatenate([col1, col2, col3, col4])
-    returnArray = np.vstack((returnArray, returnArray))
+    # Limit Matrix to have min value of 0 and max value of 255
+    returnArray = np.clip(returnArray, 0, 255)
+    print(returnArray)
 
-# Limit Matrix to have min value of 0 and max value of 255
-returnArray = np.clip(returnArray, 0, 255)
 
-print(returnArray)
+
 
 
 
