@@ -38,8 +38,20 @@ def convolution(image, givenMask):
 # Split Matrix into 4 separate ones
 for i in range(0, 10):
     newMat = np.array_split(matrix[i], 4)
-    # Limit Matrix to have min value of 0 and max value of 255
-    print(newMat)
-    print(newMat[0])
+    # Store each 1x3 array into 4 variables
+    col1 = convolution(newMat[0], mask)
+    col2 = convolution(newMat[1], mask)
+    col3 = convolution(newMat[2], mask)
+    col4 = convolution(newMat[3], mask)
+
+    # Combine aray into single array
+    returnArray = np.concatenate([col1, col2, col3, col4])
+    returnArray = np.vstack((returnArray, returnArray))
+
+# Limit Matrix to have min value of 0 and max value of 255
+returnArray = np.clip(returnArray, 0, 255)
+
+print(returnArray)
+
 
 
