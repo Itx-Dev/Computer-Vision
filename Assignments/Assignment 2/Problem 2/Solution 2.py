@@ -11,8 +11,8 @@ image = cv.imread(imageFile)
 # Convert Image to gray scale
 grayImage = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
 
-#cv.imshow(windowName, grayImage)  # Show Image
-#cv.waitKey(0)  # Wait for exit
+cv.imshow(windowName, grayImage)  # Show Image
+cv.waitKey(0)  # Wait for exit
 
 
 ####
@@ -34,8 +34,8 @@ saltAndPepperImage = saltAndPepper(grayImage, 0.1)
 
 
 # Display Image
-#cv.imshow("Salt and Pepper Image", saltAndPepperImage)
-#cv.waitKey(0)
+cv.imshow("Salt and Pepper Image", saltAndPepperImage)
+cv.waitKey(0)
 
 ###
 def medianBlur(image):
@@ -58,9 +58,6 @@ def medianBlur(image):
 # Run median blur function
 fixedImage = medianBlur(saltAndPepperImage)
 
-# Apply median filter to salt and pepper image
-'''fixedImage = cv.medianBlur(saltAndPepperImage, 5)
-'''
 # Display Image
 cv.imshow('Fixed Image', fixedImage)
 cv.waitKey(0)
