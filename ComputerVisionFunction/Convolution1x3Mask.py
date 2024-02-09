@@ -1,6 +1,8 @@
+import numpy as np
+
 ## Example Mask and Image
 mask = [-1, 0, 1]
-image = [1, 1, 4,1,3,252,254,251,251,255,
+matrix = [1, 1, 4,1,3,252,254,251,251,255,
          0,4,4,3,0,253,252,255,253,254,
          0,0,1,1,5,255,250,255,253,251,
          0,4,5,2,2,255,250,251,250,253,
@@ -13,7 +15,7 @@ image = [1, 1, 4,1,3,252,254,251,251,255,
 ## for 1x3 mask
 def convolution(image, mask):
     # Define size of rows and cols
-    rows, cols = matrix.shape
+    rows, cols = image.shape
     size = mask.shape[0]
     # Set up array for storage of answers
     answer = np.zeros((rows, cols - size + 1))
@@ -21,7 +23,7 @@ def convolution(image, mask):
     # Loop over to perform convolution operation
     for i in range(rows):
         for j in range(cols - size + 1):
-            answer[i, j] = np.sum(matrix[i, j:j+size] * mask)
+            answer[i, j] = np.sum(image[i, j:j+size] * mask)
 
     # Return answer
     return answer
