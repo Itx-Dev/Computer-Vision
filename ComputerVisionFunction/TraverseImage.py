@@ -1,5 +1,6 @@
 import numpy as np
 
+# Travel across image with 3x3 kernal
 def traverseImage(image):
     # Create a 3x3 mask
     mask = np.ones((3, 3))
