@@ -2,12 +2,6 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Function to perform Inverse DCT
-def inverseDCT(compressedImage):
-    # Perform IDCT on the entire compressed image
-    recoverImage = cv2.idct(compressedImage)
-    return recoverImage
-
 # Read image in as grayscale
 image = cv2.imread('../pokemonImage.jpg', cv2.IMREAD_GRAYSCALE)
 
